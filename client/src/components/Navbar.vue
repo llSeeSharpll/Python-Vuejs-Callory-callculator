@@ -12,11 +12,6 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item
-            ><router-link class="text-dark" :to="{ name: 'home' }"
-              >Home</router-link
-            ></b-nav-item
-          >
-          <b-nav-item
             v-if="getIsUserLoggedIn == undefined || getIsUserLoggedIn == false"
             ><router-link class="text-dark" :to="{ name: 'login' }"
               >Log in</router-link
@@ -30,17 +25,18 @@
             ></b-nav-item
           >
           <b-nav-item class="font-wieght-bold" v-if="getIsUserLoggedIn == true">
-            {{ username }}
+            <router-link class="text-dark" :to="{ name: 'home' }">
+              {{ username }}
+            </router-link>
           </b-nav-item>
-          <b-nav-item>
-            <button
-              class="btn-light"
-              v-if="getIsUserLoggedIn"
-              @click="processLogout()"
-            >
-              Logout
-            </button>
-          </b-nav-item>
+          <b-button
+            v-if="getIsUserLoggedIn"
+            @click="processLogout()"
+            variant="light"
+            type="light"
+          >
+            Logout
+          </b-button>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
