@@ -1,26 +1,26 @@
 <template>
   <div class="mt-2">
     <div class="font-weight-bold row">
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-4 col-md-4">
         Daily Limit<br />
         <input
-          class="mt-2 p-5 font-size-20"
+          class="mt-2 p-lg-5"
           v-model="totalcall"
           readonly="isReadOnly"
         />
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-4 col-md-4">
         Current callories<br />
         <input
-          class="mt-2 p-5 font-size-20"
+          class="mt-2 p-lg-5"
           v-model="curentcall"
           readonly="isReadOnly"
         />
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-sm-4 col-md-2">
         Total<br />
         <input
-          class="mt-2 p-5 font-size-20"
+          class="mt-2 p-lg-5 "
           v-model="total"
           readonly="isReadOnly"
         />
@@ -48,11 +48,11 @@
         </div>
       </div>
       <div class="row font-weight-bold py-2">
-        <div class="col-4">Name</div>
-        <div class="col-1 mx-4">Fat</div>
-        <div class="col-1">Protien</div>
-        <div class="col-1">Carbs</div>
-        <div class="col-4 mx-3">Callories</div>
+        <div class="col-lg-4 food col-sm-4 col-md-4">Name</div>
+        <div class="col-lg-1 food col-sm-1 col-md-1 mx-md-2 mx-lg-4">Fat</div>
+        <div class="col-lg-1 food col-sm-1 col-md-1">Protien</div>
+        <div class="col-lg-1 food col-sm-1 col-md-1 mx-md-2">Carbs</div>
+        <div class="col-lg-4 food col-sm-4 col-md-4 mx-md-2">Callories</div>
       </div>
     </div>
     <div class="font-weight-bold" v-if="foods.length == 0">No foods yet</div>
@@ -65,19 +65,19 @@
       <div>
         <div>
           <div class="row">
-            <div class="col-4">
+            <div class="col-lg-4 food col-sm-4 col-md-4">
               {{ item[0] }}
             </div>
-            <div class="col-1 mx-4">
+            <div class="col-lg-1 food col-sm-1 col-md-1 mx-md-2 mx-lg-4">
               {{ item[1] }}
             </div>
-            <div class="col-1">
+            <div class="col-lg-1 food col-sm-1 col-md-1">
               {{ item[2] }}
             </div>
-            <div class="col-1">
+            <div class="col-lg-1 food col-sm-1 col-md-1 mx-md-2">
               {{ item[3] }}
             </div>
-            <div class="col-4 mx-3">
+            <div class="col-lg-4 food col-sm-4 col-md-4 mx-md-2">
               {{ item[4] }}
             </div>
           </div>
@@ -206,5 +206,8 @@ export default {
 <style>
 .font-size-20 {
   font-size: 20px;
+}
+.food{
+  width: 20%  !important;
 }
 </style>

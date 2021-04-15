@@ -53,7 +53,7 @@
         class="rounded"
         v-model="weight"
         prepend-icon="mdi-phone"
-        type="tel"
+        type="number"
       />
       <div class="mx-1">Height</div>
       <input
@@ -62,16 +62,16 @@
         class="rounded"
         v-model="height"
         prepend-icon="mdi-phone"
-        type="tel"
+        type="number"
       />
       <div class="mx-1">Age</div>
       <input
         name="mobilePhone"
         label="Mobile Phone"
         class="rounded"
-        v-model="Age"
+        v-model="age"
         prepend-icon="mdi-phone"
-        type="tel"
+        type="number"
       />
       <div class="mx-1">
         <div>Gender</div>
@@ -116,10 +116,6 @@
             weight: weight,
             height: height,
             age: age
-          }).then(()=>{
-            alert.alert('Register Success')
-          }).catch(()=>{
-            alert.alert('Username or email already used')
           })
         "
       >

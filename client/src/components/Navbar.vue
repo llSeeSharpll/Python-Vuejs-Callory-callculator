@@ -1,59 +1,50 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-brand">Callory Calculator</div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <router-link class="nav-link" :to="{ name: 'home' }"
-            >Home <span class="sr-only">(current)</span></router-link
+  <div>
+    <b-navbar toggleable="lg" variant="light" type="light">
+      <b-navbar-brand
+        ><router-link :to="{ name: 'home' }" class="navbar-brand"
+          >Callory Calculator</router-link
+        ></b-navbar-brand
+      >
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item
+            ><router-link class="text-dark" :to="{ name: 'home' }"
+              >Home</router-link
+            ></b-nav-item
           >
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            :to="{ name: 'login' }"
+          <b-nav-item
             v-if="getIsUserLoggedIn == undefined || getIsUserLoggedIn == false"
-            >Log in</router-link
+            ><router-link class="text-dark" :to="{ name: 'login' }"
+              >Log in</router-link
+            ></b-nav-item
           >
-        </li>
-        <li class="nav-item">
-          <div
-            class="nav-link mx-2 font-wieght-bold"
-            v-if="getIsUserLoggedIn == true"
-            >{{ username }}</div
-          >
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            :to="{ name: 'register' }"
+          <b-nav-item
             v-if="getIsUserLoggedIn == undefined || getIsUserLoggedIn == false"
-            >Register</router-link
           >
-        </li>
-        <li class="nav-item">
-          <button
-            class="nav-link btn-light"
-            v-if="getIsUserLoggedIn"
-            @click="processLogout()"
+            <router-link class="text-dark" :to="{ name: 'register' }"
+              >Register</router-link
+            ></b-nav-item
           >
-            Logout
-          </button>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          <b-nav-item class="font-wieght-bold" v-if="getIsUserLoggedIn == true">
+            {{ username }}
+          </b-nav-item>
+          <b-nav-item>
+            <button
+              class="btn-light"
+              v-if="getIsUserLoggedIn"
+              @click="processLogout()"
+            >
+              Logout
+            </button>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -71,7 +62,7 @@ export default {
     ...mapActions(["logout"]),
     processLogout() {
       this.logout({ controllerReference: this }).then(function (ctrl) {
-        window.location.reload()
+        window.location.reload();
         ctrl.$router.push("/login");
       });
     },
